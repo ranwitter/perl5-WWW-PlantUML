@@ -9,7 +9,7 @@ use Lingua::PlantUML::Encode qw(encode_p);
 
 =head1 NAME
 
-WWW::PlantUML - The great new WWW::PlantUML!
+WWW::PlantUML - A Perl Module to access UML diagrams generated on any given PlantUML Web Application Server in various supported formats.
 
 =head1 VERSION
 
