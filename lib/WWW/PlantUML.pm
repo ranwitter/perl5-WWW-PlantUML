@@ -18,7 +18,7 @@ Version 0.01
 =cut
 
 our $VERSION = '0.01';
-
+our $PLANTUML_BASE_URL = 'http://www.plantuml.com/plantuml';
 
 =head1 SYNOPSIS
 
@@ -45,8 +45,8 @@ if you don't export anything, such as for a purely object-oriented module.
 sub new {
     my $class = shift;
     my %args  = (
-        'baseurl'  => 'http://www.plantuml.com/plantuml',
-       # 'infopath' => 'info.0.json',
+        'baseurl'  => $ENV{PLANTUML_BASE_URL} || $PLANTUML_BASE_URL,
+        'contexts' => ('png','svg','txt'),
         @_,
     );
  
@@ -57,7 +57,7 @@ sub new {
 
 =cut
 
-sub fetch_metadata {
+sub fetch_url {
     my $self           = shift;
     my $base           = $self->{'baseurl'};
    # my $path           = $self->{'infopath'};
@@ -66,58 +66,10 @@ sub fetch_metadata {
     my $code          = shift;
 
     my $ncoded = encode_p($code); 
-
     my $url = defined $type ? "$base/$type/$ncoded" : "$base/txt/$ncoded";
- 
-#    if ($cb) {
-#        # this is async
-#        $can_async
-#            or croak 'AnyEvent and AnyEvent::HTTP are required for async mode';
-# 
-#        AnyEvent::HTTP::http_get( $url, sub {
-#            my $body = shift;
-#            my $meta = $self->_decode_json($body);
-# 
-#            return $cb->($meta);
-#        } );
-# 
-#        return 0;
-#    }
-# 
-#    # this is sync
-#    my $result = HTTP::Tiny->new->get($url);
-# 
-#    $result->{'success'} or croak "Can't fetch $url: " .
-#        $result->{'reason'};
-# 
-#    my $meta = $self->_decode_json( $result->{'content'} );
- 
-    my $meta = { 'img' => $url, 'alt' => $code };
-    #return $meta;
     return $url;
 }
 
-#sub _parse_args {
-#    my $self = shift;
-#    my @args = @_;
-#    my ( $type, $code );
-# 
-#    # @_ = $num, $cb
-#    # @_ = $num
-#    # @_ = $cb
-#    if ( @_ == 2 ) {
-#        ( $type, $code ) = @_;
-#    } elsif ( @_ == 1 ) {
-#        if ( ref $_[0] ) {
-#            $code = $_[0];
-#        } else {
-#            $type = $_[0];
-#        }
-#    }
-# 
-#    return ( $type, $code );
-#}
-#
 =head1 AUTHOR
 
 Rangana Sudesha Withanage, C<< <rwi at cpan.org> >>
