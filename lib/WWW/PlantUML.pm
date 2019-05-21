@@ -32,9 +32,15 @@ our $URL     = 'http://www.plantuml.com/plantuml';
     print $url; 
     # prints  http://www.plantuml.com/plantuml/png/69NZKb1moazIqBLJSCp9J4vLi5B8ICt9oUS204a_1dy0
 
-=head1 EXPORT
+=head1 DESCRIPTION
 
-This module exports nothing.
+Plantuml is a library for generating UML diagrams from a simple text markup language.
+
+This is a simple Perl remote client interface to a plantuml server using the same custom encoding used by most other plantuml clients. Perl was missing from the list.
+
+There are other plantuml Perl libraries, like PlantUML::ClassDiagram::Parse, they provide only parsing capabilities for Class Diagrams. In contrast WWW::PlantUML module provides accessing any UML Diagram Type in various formats supported by any plantUML server via HTTP Protocol.
+
+This client defaults to the public plantuml server, but can be used against any server.
 
 =head1 SUBROUTINES/METHODS
 
