@@ -1,6 +1,12 @@
 WWW-PlantUML
 
-A Perl Module to access UML diagrams generated on any given PlantUML Web Application Server in various supported formats.
+Plantuml is a library for generating UML diagrams from a simple text markup language.
+
+This is a simple Perl remote client interface to a plantuml server using the same custom encoding used by most other plantuml clients. Perl was missing from the list.
+
+There are other plantuml Perl libraries, like PlantUML::ClassDiagram::Parse, they provide only parsing capabilities for Class Diagrams. In contrast WWW::PlantUML module provides accessing any UML Diagram Type in various formats supported by any plantUML server via HTTP Protocol.
+
+This client defaults to the public plantuml server, but can be used against any server.
 
 INSTALLATION
 

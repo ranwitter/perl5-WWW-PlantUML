@@ -9,7 +9,7 @@ use Lingua::PlantUML::Encode qw(encode_p);
 
 =head1 NAME
 
-WWW::PlantUML - A Perl Module to access UML diagrams generated on any given PlantUML Web Application Server in various supported formats.
+WWW::PlantUML - a simple Perl remote client interface to a plantuml server.
 
 =head1 VERSION
 
@@ -18,34 +18,41 @@ Version 0.01
 =cut
 
 our $VERSION = '0.01';
-our $PLANTUML_BASE_URL = 'http://www.plantuml.com/plantuml';
+our $URL     = 'http://www.plantuml.com/plantuml';
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
-
     use WWW::PlantUML;
 
-    my $foo = WWW::PlantUML->new();
-    ...
+    my $puml = WWW::PlantUML->new;
+    my $url  = $puml->fetch_url(qq{
+       Alice -> Bob : hello
+    }, 'png');
+
+    print $url; 
+    # prints  http://www.plantuml.com/plantuml/png/69NZKb1moazIqBLJSCp9J4vLi5B8ICt9oUS204a_1dy0
 
 =head1 EXPORT
 
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+This module exports nothing.
 
 =head1 SUBROUTINES/METHODS
 
-=head2 function1
+=head2 new
+
+Constructor.
+
+Can be optionally passed a URL to the PlantUML Server. 
+
+Defaults to http://www.plantuml.com/plantuml
 
 =cut
 
 sub new {
     my $class = shift;
+    my $url   = shift;
     my %args  = (
-        'baseurl'  => $ENV{PLANTUML_BASE_URL} || $PLANTUML_BASE_URL,
+        'baseurl'  => $url || $ENV{PLANTUML_BASE_URL} || $URL,
         'contexts' => ('png','svg','txt'),
         @_,
     );
@@ -53,7 +60,13 @@ sub new {
     return bless { %args }, $class;
 }
 
-=head2 function2
+=head2 fetch_url
+
+First parameter is PlantUML Syntax as a String.
+
+Optionally second parameter is the format of the generated diagram as a String.
+
+Default is Text Format.
 
 =cut
 
@@ -62,8 +75,8 @@ sub fetch_url {
     my $base           = $self->{'baseurl'};
    # my $path           = $self->{'infopath'};
     #my ( $type, $code ) = $self->_parse_args(@_);
-    my $type          = shift;
     my $code          = shift;
+    my $type          = shift;
 
     my $ncoded = encode_p($code); 
     my $url = defined $type ? "$base/$type/$ncoded" : "$base/txt/$ncoded";
@@ -79,8 +92,6 @@ Rangana Sudesha Withanage, C<< <rwi at cpan.org> >>
 Please report any bugs or feature requests to C<bug-www-plantuml at rt.cpan.org>, or through
 the web interface at L<https://rt.cpan.org/NoAuth/ReportBug.html?Queue=WWW-PlantUML>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
-
-
 
 
 =head1 SUPPORT
