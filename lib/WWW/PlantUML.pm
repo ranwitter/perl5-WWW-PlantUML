@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 use Carp;
-use Lingua::PlantUML::Encode qw(encode_p);
+use UML::PlantUML::Encoder qw(encode_p);
 
 =head1 NAME
 
@@ -79,7 +79,7 @@ Default is Text Format.
 sub fetch_url {
     my $self           = shift;
     my $base           = $self->{'baseurl'};
-   # my $path           = $self->{'infopath'};
+    #my $path           = $self->{'infopath'};
     #my ( $type, $code ) = $self->_parse_args(@_);
     my $code          = shift;
     my $type          = shift;
