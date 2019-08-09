@@ -9,14 +9,16 @@ plan tests => 1;
 use WWW::PlantUML;
 
 my $puml = WWW::PlantUML->new;
-my $url  = $puml->fetch_url(qq{
+my $url  = $puml->fetch_url(
+    qq{
    Alice -> Bob : hello
-}, 'png');
+}, 'png'
+);
 
-#diag $url; 
+#diag $url;
 
 ok(
-  $url eq
-  'http://www.plantuml.com/plantuml/png/69NZKb1GSCp9J4vLqBLJSCfFKh1Io4ZDoSdd0W1EMmQV',
-  'fetched default url and default format'
+    $url eq
+'http://www.plantuml.com/plantuml/png/69NZKb1GSCp9J4vLqBLJSCfFKh1Io4ZDoSdd0W1EMmQV',
+    'fetched default url and default format'
 );

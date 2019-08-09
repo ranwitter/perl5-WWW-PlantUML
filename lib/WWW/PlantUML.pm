@@ -59,11 +59,11 @@ sub new {
     my $url   = shift;
     my %args  = (
         'baseurl'  => $url || $ENV{PLANTUML_BASE_URL} || $URL,
-        'contexts' => ('png','svg','txt'),
+        'contexts' => ( 'png', 'svg', 'txt' ),
         @_,
     );
- 
-    return bless { %args }, $class;
+
+    return bless {%args}, $class;
 }
 
 =head2 fetch_url
@@ -77,15 +77,16 @@ Default is Text Format.
 =cut
 
 sub fetch_url {
-    my $self           = shift;
-    my $base           = $self->{'baseurl'};
+    my $self = shift;
+    my $base = $self->{'baseurl'};
+
     #my $path           = $self->{'infopath'};
     #my ( $type, $code ) = $self->_parse_args(@_);
-    my $code          = shift;
-    my $type          = shift;
+    my $code = shift;
+    my $type = shift;
 
-    my $ncoded = encode_p($code); 
-    my $url = defined $type ? "$base/$type/$ncoded" : "$base/txt/$ncoded";
+    my $ncoded = encode_p($code);
+    my $url    = defined $type ? "$base/$type/$ncoded" : "$base/txt/$ncoded";
     return $url;
 }
 
@@ -143,4 +144,4 @@ the same terms as the Perl 5 programming language system itself.
 
 =cut
 
-1; # End of WWW::PlantUML
+1;    # End of WWW::PlantUML

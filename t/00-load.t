@@ -7,7 +7,7 @@ use Test::More;
 plan tests => 1;
 
 BEGIN {
-    use_ok( 'WWW::PlantUML' ) || print "Bail out!\n";
+    use_ok('WWW::PlantUML') || print "Bail out!\n";
 }
 
-diag( "Testing WWW::PlantUML $WWW::PlantUML::VERSION, Perl $], $^X" );
+diag("Testing WWW::PlantUML $WWW::PlantUML::VERSION, Perl $], $^X");
