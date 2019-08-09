@@ -8,6 +8,8 @@ plan tests => 1;
 
 use WWW::PlantUML;
 
+$ENV{PLANTUML_BASE_URL} = qq{http://www.plantuml.com/plantuml};
+
 my $puml = WWW::PlantUML->new;
 my $url  = $puml->fetch_url(
     qq{
