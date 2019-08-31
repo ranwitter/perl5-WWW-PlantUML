@@ -130,7 +130,7 @@ L<https://metacpan.org/release/WWW-PlantUML>
 
 =head1 ACKNOWLEDGEMENTS
 
-Author is inspired by the work of L<https://metacpan.org/pod/WWW::xkcd>, which was written by Sawyer X L<https://metacpan.org/author/XSAWYERX>.
+Author is inspired by the work of L<WWW::xkcd>, which was written by L<Sawyer X|https://metacpan.org/author/XSAWYERX>.
 
 =head1 LICENSE AND COPYRIGHT
 
