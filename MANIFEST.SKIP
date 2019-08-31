@@ -4,3 +4,4 @@ ignore.txt
 xt/boilerplate.t
 MYMETA.json
 MYMETA.yaml
+cpanfile
