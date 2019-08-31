@@ -1,94 +1,103 @@
-NAME
-    WWW::PlantUML - a simple Perl remote client interface to a plantuml
-    server.
+=for html <a href="https://travis-ci.com/ranwitter/perl5-WWW-PlantUML"><img src="https://travis-ci.com/ranwitter/perl5-WWW-PlantUML.svg?branch=master"></a>&nbsp;</a><a title="Artistic-2.0" href="https://opensource.org/licenses/Artistic-2.0"><img src="https://img.shields.io/badge/License-Perl-0298c3.svg"></a>
 
-VERSION
-    Version 0.02
+=head1 NAME
 
-SYNOPSIS
-        use WWW::PlantUML;
+WWW::PlantUML - a simple Perl remote client interface to a plantuml server.
 
-        my $puml = WWW::PlantUML->new;
-        my $url  = $puml->fetch_url(qq{
-           Alice -> Bob : hello
-        }, 'png');
+=head1 VERSION
 
-        print $url; 
-        # prints  http://www.plantuml.com/plantuml/png/69NZKb1GSCp9J4vLqBLJSCfFKh1Io4ZDoSdd0W1EMmQV
+Version 0.02
 
-DESCRIPTION
-    Plantuml is a library for generating UML diagrams from a simple text
-    markup language.
+=head1 SYNOPSIS
 
-    This is a simple Perl remote client interface to a plantuml server using
-    the same custom encoding used by most other plantuml clients. Perl was
-    missing from the list.
+    use WWW::PlantUML;
 
-    There are other plantuml Perl libraries, like
-    PlantUML::ClassDiagram::Parse, they provide only parsing capabilities
-    for Class Diagrams. In contrast WWW::PlantUML module provides accessing
-    any UML Diagram Type in various formats supported by any plantUML server
-    via HTTP Protocol.
+    my $puml = WWW::PlantUML->new;
+    my $url  = $puml->fetch_url(qq{
+       Alice -> Bob : hello
+    }, 'png');
 
-    This client defaults to the public plantuml server, but can be used
-    against any server.
+    print $url; 
+    # prints  http://www.plantuml.com/plantuml/png/69NZKb1GSCp9J4vLqBLJSCfFKh1Io4ZDoSdd0W1EMmQV
 
-SUBROUTINES/METHODS
-  new
-    Constructor.
+=head1 DESCRIPTION
 
-    Can be optionally passed a URL to the PlantUML Server.
+Plantuml is a library for generating UML diagrams from a simple text markup language.
 
-    Defaults to http://www.plantuml.com/plantuml
+This is a simple Perl remote client interface to a plantuml server using the same custom encoding used by most other plantuml clients. Perl was missing from the list.
 
-  fetch_url
-    First parameter is PlantUML Syntax as a String.
+There are other plantuml Perl libraries, like PlantUML::ClassDiagram::Parse, they provide only parsing capabilities for Class Diagrams. In contrast WWW::PlantUML module provides accessing any UML Diagram Type in various formats supported by any plantUML server via HTTP Protocol.
 
-    Optionally second parameter is the format of the generated diagram as a
-    String.
+This client defaults to the public plantuml server, but can be used against any server.
 
-    Default is Text Format.
+=head1 SUBROUTINES/METHODS
 
-AUTHOR
-    Rangana Sudesha Withanage, "<rwi at cpan.org>"
+=head2 new
 
-BUGS
-    Please report any bugs or feature requests to "bug-www-plantuml at
-    rt.cpan.org", or through the web interface at
-    <https://rt.cpan.org/NoAuth/ReportBug.html?Queue=WWW-PlantUML>. I will
-    be notified, and then you'll automatically be notified of progress on
-    your bug as I make changes.
+Constructor.
 
-SUPPORT
-    You can find documentation for this module with the perldoc command.
+Can be optionally passed a URL to the PlantUML Server. 
 
-        perldoc WWW::PlantUML
+Defaults to http://www.plantuml.com/plantuml
 
-    You can also look for information at:
+=head2 fetch_url
 
-    *   RT: CPAN's request tracker (report bugs here)
+First parameter is PlantUML Syntax as a String.
 
-        <https://rt.cpan.org/NoAuth/Bugs.html?Dist=WWW-PlantUML>
+Optionally second parameter is the format of the generated diagram as a String.
 
-    *   GitHub Repository
+Default is Text Format.
 
-        <https://github.com/ranwitter/perl5-WWW-PlantUML>
+=head1 AUTHOR
 
-    *   CPAN Ratings
+Rangana Sudesha Withanage, C<< <rwi at cpan.org> >>
 
-        <https://cpanratings.perl.org/d/WWW-PlantUML>
+=head1 BUGS
 
-    *   Search CPAN
+Please report any bugs or feature requests to C<bug-www-plantuml at rt.cpan.org>, or through
+the web interface at L<https://rt.cpan.org/NoAuth/ReportBug.html?Queue=WWW-PlantUML>.  I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
 
-        <https://metacpan.org/release/WWW-PlantUML>
 
-ACKNOWLEDGEMENTS
-    Author is inspired by the work of <https://metacpan.org/pod/WWW::xkcd>,
-    which was written by Sawyer X <https://metacpan.org/author/XSAWYERX>.
+=head1 SUPPORT
 
-LICENSE AND COPYRIGHT
-    This software is copyright (c) 2019 by Rangana Sudesha Withanage.
+You can find documentation for this module with the perldoc command.
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+    perldoc WWW::PlantUML
+
+
+You can also look for information at:
+
+=over 4
+
+=item * RT: CPAN's request tracker (report bugs here)
+
+L<https://rt.cpan.org/NoAuth/Bugs.html?Dist=WWW-PlantUML>
+
+=item * GitHub Repository
+
+L<https://github.com/ranwitter/perl5-WWW-PlantUML>
+
+=item * CPAN Ratings
+
+L<https://cpanratings.perl.org/d/WWW-PlantUML>
+
+=item * Search CPAN
+
+L<https://metacpan.org/release/WWW-PlantUML>
+
+=back
+
+
+=head1 ACKNOWLEDGEMENTS
+
+Author is inspired by the work of L<https://metacpan.org/pod/WWW::xkcd>, which was written by Sawyer X L<https://metacpan.org/author/XSAWYERX>.
+
+=head1 LICENSE AND COPYRIGHT
+
+This software is copyright (c) 2019 by Rangana Sudesha Withanage.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
 
