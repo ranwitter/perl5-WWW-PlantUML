@@ -1,4 +1,4 @@
-requires 'UML::PlantUML::Encoder', '0.02'
+requires 'UML::PlantUML::Encoder', '0.02';
 
 on 'test' => sub {
  requires 'Test::More', '1.001014';
