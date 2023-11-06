@@ -14,11 +14,11 @@ WWW::PlantUML - a simple Perl remote client interface to a plantuml server.
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 our $URL     = 'http://www.plantuml.com/plantuml';
 
 =head1 SYNOPSIS
@@ -31,7 +31,7 @@ our $URL     = 'http://www.plantuml.com/plantuml';
     }, 'png');
 
     print $url; 
-    # prints  http://www.plantuml.com/plantuml/png/69NZKb1GSCp9J4vLqBLJSCfFKh1Io4ZDoSdd0W1EMmQV
+    # prints  http://www.plantuml.com/plantuml/png/~169NZKb1GSCp9J4vLqBLJSCfFKh1Io4ZDoSdd0W1EMmQV
 
 =head1 DESCRIPTION
 
